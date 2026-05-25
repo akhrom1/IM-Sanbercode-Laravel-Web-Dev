@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Form</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Buat Akun Baru</h1>
+    </header>
+
+    <h2>Sign Up Form</h2>
+
+    <form action="./welcome.html">
+      <label>First name:</label><br />
+      <input type="text" /><br />
+      <label>Last name:</label><br />
+      <input type="text" /><br /><br />
+
+      <p>Gender</p>
+      <input type="radio" id="male" name="fav_language" value="Male" />
+      <label for="male">Male</label><br />
+
+      <input type="radio" id="female" name="fav_language" value="Female" />
+      <label for="female">Female</label><br />
+
+      <input type="radio" id="other" name="fav_language" value="Other" />
+      <label for="other">Other</label>
+
+      <p>Nationality :</p>
+
+      <select name="nationality" id="nationality">
+        <option value="ind">Indonesia</option>
+        <option value="ina">India</option>
+        <option value="sg">Singapure</option>
+        <option value="mly">Malaysia</option>
+      </select>
+
+      <p>Language Spoken :</p>
+
+      <input type="checkbox" id="idn" name="language" value="idn" checked />
+      <label for="idn">Indonesia</label><br />
+
+      <input type="checkbox" id="english" name="language" value="music" />
+      <label for="english">English</label><br />
+
+      <input type="checkbox" id="art" name="language" value="other" />
+      <label for="other">Other</label>
+
+      <p>Bio :</p>
+
+      <textarea rows="8" cols="50"></textarea>
+
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script src="" async defer></script>
+  </body>
+</html>
