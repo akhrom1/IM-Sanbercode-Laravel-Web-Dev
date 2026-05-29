@@ -1,0 +1,62 @@
+1. create database myshop
+
+===================================================================================
+2. Tabel create User | categories | Items
+
+create table users (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name varchar(225),
+  email varchar(225),
+  password varchar(225)
+)
+
+create table categories (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name varchar(225)
+)
+
+create table items (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name varchar(225),
+  description varchar(255),
+  price int,
+  stock int,
+  category_id int,
+  foreign key (category_id) references categories(id)
+)
+
+===================================================================================
+3. Table create Useer | categories | Items
+
+insert into users (name, email, password) VALUES
+('John Doe', 'john@doe.com', 'john123'),
+('Jane Doe', 'jane@doe.com', 'jenita123');
+
+insert into categories (name) VALUES
+('gadget'),
+('cloth'),
+('men'),
+('women'),
+('branded');
+
+insert into items (name, description, price, stock, category_id) VALUES
+('Sumsang b50', 'hape keren dari merek sumsang', 4000000, 100, 1),
+('Uniklooh', 'baju keren dari brand ternama', 500000, 50, 2),
+('IMHO Watch', 'jam tangan anak yang jujur banget', 2000000, 10, 1);
+
+===================================================================================
+4. 
+    a. Mengambil data users
+    select id, name, email from users;
+
+    b. Mengambil data items
+    select * from items where price > 1000000;
+    select * from items where name like '%watch%';
+
+    c.Menampilkan data items join dengan kategori
+    select a.name, a.description, a.price, a.stock, a.category_id, b.name AS kategori
+    from items a
+    inner join categories b on a.category_id = b.id;
+
+====================================================================================
+5. update items set price = 2500000 where name = 'Sumsang b50';
