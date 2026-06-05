@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\CategoryController;
+
 
 
 // Route::get('/', function () {
@@ -12,6 +14,11 @@ Route::get('/', [DashboardController::class, 'dashboard']);
 Route::get('/daftar', [FormController::class, 'daftar']);
 Route::post('/welcome', [FormController::class, 'welcome']);
 
-Route::get('/master', function () {
-    return view('layouts.master');
-});
+
+Route::get('/category/create', [CategoryController::class, 'create']);
+Route::post('/category', [CategoryController::class, 'store']);
+Route::get('/category', [CategoryController::class, 'index']);
+Route::get('/category/{id}', [CategoryController::class, 'show']);
+Route::get('/category/{id}/edit', [CategoryController::class, 'edit']);
+Route::put('/category/{id}', [CategoryController::class, 'update']);
+Route::delete('/category/{id}', [CategoryController::class, 'destroy']);
