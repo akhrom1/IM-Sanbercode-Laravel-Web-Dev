@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Category;
 use Carbon\Carbon;
 
 class CategoryController extends Controller
@@ -38,7 +39,7 @@ class CategoryController extends Controller
 
 
         //redirec
-        return redirect('/category');
+        return redirect('/category')->with('success', 'Berhasil Membuat Category');
     }
 
     public function index()
@@ -48,21 +49,21 @@ class CategoryController extends Controller
         return view('category.show', ['category' => $categories]);
     }
 
-    public function show($id)
+    public function show(string $id)
     {
-        $category = DB::table('categories')->find($id);
+        $category = Category::find($id);
 
         return view('category.detail', ['category' => $category]);
     }
 
-    public function edit($id)
+    public function edit(string $id)
     {
         $category = DB::table('categories')->find($id);
 
         return view('category.edit', ['category' => $category]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, string $id)
     {
         //vali
         $request->validate([
@@ -86,14 +87,14 @@ class CategoryController extends Controller
 
 
         //redirec
-        return redirect('/category');
+        return redirect('/category')->with('success', 'Berhasil update Category');
     }
 
-    public function destroy($id)
+    public function destroy(string $id)
     {
 
         DB::table('categories')->where('id', '=', $id)->delete();
         //redirec
-        return redirect('/category');
+        return redirect('/category')->with('success', 'Berhasil Menghapus Category');
     }
 }

@@ -1,26 +1,50 @@
 @extends('layouts.master')
 
 @section('title')
-Halaman Utama
+    Halaman Utama
 @endsection
 
 @section('content')
-<h1>Social Media Developer Santai Berkualitas</h1>
-<p>Belajar dan Berbagi agar hidup santai berkualitas</p>
+    <div class="container mt-4">
+        <div class="card shadow border-0">
+            <div class="card-body p-4">
 
-<h2>Benefit Join di Sanberbook</h2>
+                <h2 class="fw-bold text-primary mb-3">
+                    Selamat Datang, {{ Auth::user()->name }}
+                </h2>
 
-<ul>
-    <li>Mendapatkan motivasi sesama developer</li>
-    <li>Sharing knowledge dari para mastah Sanber</li>
-    <li>Dibuat oleh calon web developer terbaik</li>
-</ul>
+                <hr>
 
-<h2>Cara Bergabung dengan Sanberbook</h2>
+                @if (!empty($user->age) || !empty($user->bio))
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card bg-light border-0">
+                                <div class="card-body">
+                                    <h6 class="text-secondary">Age</h6>
+                                    <h4>{{ $user->age ?? '-' }}</h4>
+                                </div>
+                            </div>
+                        </div>
 
-<ol>
-    <li>Mengunjungi Website ini</li>
-    <li>Mendaftar di <a href="/daftar">Form Sign Up</a></li>
-    <li>Selesai!</li>
-</ol>
+                        <div class="col-md-6 mb-3">
+                            <div class="card bg-light border-0">
+                                <div class="card-body">
+                                    <h6 class="text-secondary">Bio</h6>
+                                    <p class="mb-0">
+                                        {{ $user->bio ?? '-' }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <div class="alert alert-warning">
+                        <strong>Profil belum lengkap!</strong><br>
+                        Silahkan isi di menu profile
+                    </div>
+                @endif
+
+            </div>
+        </div>
+    </div>
 @endsection
